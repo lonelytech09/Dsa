@@ -1,0 +1,30 @@
+#include<iostream>
+using namespace std;
+
+void replace(char input[],char chr,char str[]){
+    int size=strlen(input);
+    if(size==0)
+    return;
+    if(input[0]==chr){
+        int l=strlen(str);
+        for(int i=size;i>0;i--)
+        input[i+l-1]=input[i];
+        for(int i=0;i<l;i++){
+            input[i]=str[i];
+        }
+        replace(input+l,chr,str);
+    }
+    else
+    replace(input+1,chr,str);
+}
+int main(){
+    char input[100],chr,str[100];
+    cout<<"enter the string:-";
+    cin>>input;
+    cout<<"enter the target character:";
+    cin>>chr;
+    cout<<"enter the replacement string:";
+    cin>>str;
+    replace(input,chr,str);
+    cout<<input;
+}
