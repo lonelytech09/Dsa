@@ -1,12 +1,10 @@
 #include<iostream>
 using namespace std;
-
 int sum(int arr[],int size){
     if(size==0) return 0;
     return arr[0]+sum(arr+1,size-1);
 
 }
-
 int main(){
     int arr[5]={10,3,7,2,3};
     cout<<"sum of the elements of the array:"<<sum(arr,5);
